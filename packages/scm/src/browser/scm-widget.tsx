@@ -152,6 +152,10 @@ export class ScmWidget extends BaseWidget implements StatefulWidget {
 
     protected onActivateRequest(msg: Message): void {
         super.onActivateRequest(msg);
+        MessageLoop.sendMessage(this.commitWidget, msg);
+        MessageLoop.sendMessage(this.resourceWidget, msg);
+        MessageLoop.sendMessage(this.amendWidget, msg);
+        MessageLoop.sendMessage(this.noRepositoryWidget, msg);
         this.commitWidget.focus();
     }
 
